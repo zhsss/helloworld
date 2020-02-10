@@ -13,6 +13,7 @@ public class quickunion {
 	
 	public int root(int i) {
 		while(i!=id[i]) {
+			
 			i=id[i];
 		}
 		return i;
@@ -22,7 +23,8 @@ public class quickunion {
 		return id[p]==id[q];
 		
 	}
-	//link the last
+	
+	
 	public void union(int p,int q) {
 		int pid=root(p);
 		int qid=root(q);
