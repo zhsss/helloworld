@@ -46,3 +46,25 @@ int main()
     NSLog(@"from = %@",from);
    return 0;
 }
+#import <Foundation/Foundation.h> 
+
+int main()
+{
+    NSNumber *n1 = [NSNumber numberWithInt:23];
+
+    NSNumber *n2 = [NSNumber numberWithFloat:1.2];
+
+    NSNumber *n3 = [NSNumber numberWithBool:YES];
+
+    NSNumber *n4=[NSNumber numberWithDouble:2.33];
+
+    NSValue *n5 = [NSValue valueWithRange:NSMakeRange(2, 2)];
+
+    NSMutableArray *muArray = [NSMutableArray arrayWithObjects:n1,n2,n3,n4,n5,nil];
+    
+    for (int i = 0; i < muArray.count; i++) {
+
+        NSLog(@"%@",muArray[i]);
+
+    }
+}
