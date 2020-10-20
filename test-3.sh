@@ -68,3 +68,20 @@ int main()
 
     }
 }
+
+
+
+#import "test.h"
+
+@implementation test
+    +(NSMutableArray*)arraycovert:(NSMutableArray*) muarray{
+        for(int i=0;i<muarray.count;i++){
+            if(i<=muarray.count-i-1){
+                [muarray exchangeObjectAtIndex:i withObjectAtIndex:muarray.count-i-1];
+                
+            }
+        }
+        return muarray;
+    }
+
+@end
