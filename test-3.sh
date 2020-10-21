@@ -15,73 +15,59 @@ echo "-------------------------------------------------------------------"
 grep -P $1'\s+' web_log.tsv | awk '{printf "%s \n",$1}'| sort | uniq -c | sort -nr -k1 | head -10
 echo "-------------------------------------------------------------------"
 
+#import"doublearray.h"
+#import <Foundation/Foundation.h>
 
-#import <Foundation/Foundation.h> 
 
 int main()
 {
-   NSString *str0=@"文艺青年";
- 
-    NSString *temp = @"文艺";
-    NSRange rang = [str0 rangeOfString:temp];
- 
-    NSLog(@"搜索的字符串在str0中起始点的index 为 %d", rang.location);
-    NSLog(@"搜索的字符串在str0中结束点的index 为 %d", rang.location + rang.length);
- 
-    //将搜索中的字符串替换成为一个新的字符串
-    NSString *str = [str0 stringByReplacingCharactersInRange:rang withString:@"123"];
-    NSLog(@"替换后字符串为%@", str);
-    NSString *str1=@"i love you";
-    NSString *capitalize=[str1 capitalizedString];
-    NSLog(@"str1首字母大写:%@",capitalize);
+
+    NSArray *one=[[NSArray alloc] initWithObjects:@"2.31",@"2.41",@"2.51",@"2.61",@"2.71", nil];
+    NSArray *two=[[NSArray alloc] initWithObjects:@"2.31",@"2.41",@"2.51",@"2.61",@"2.71", nil];
+    NSArray *three=[[NSArray alloc] initWithObjects:@"2.31",@"2.41",@"2.51",@"2.61",@"2.71", nil];
+    NSArray *dArray=[[NSArray alloc] initWithObjects:one,two,three, nil];
     
-    NSString *str3=@"20|https://www.cuc.edu.cn”https://www.cuc.edu.cn";
-    NSString *temp1=@"|";
     
-    NSRange rang1=[str3 rangeOfString:temp1];
-    int point=rang1.location;
-    NSString * to = [str3 substringToIndex:point];
-    NSString * from=[str3 substringFromIndex:point+1];
-    NSLog(@"to = %@",to);
-    NSLog(@"from = %@",from);
-   return 0;
+    doublearray *aob=[[doublearray alloc] init];
+ 
+    [aob display1:dArray];
+    
+   
+    
+    NSMutableArray *dhowarray=[aob copyarray:dArray];
+    
+    [aob display2:dhowarray];
+    
+    return 0;
+    
 }
-#import <Foundation/Foundation.h> 
+#import <Foundation/Foundation.h>
 
-int main()
-{
-    NSNumber *n1 = [NSNumber numberWithInt:23];
+NS_ASSUME_NONNULL_BEGIN
 
-    NSNumber *n2 = [NSNumber numberWithFloat:1.2];
+@interface doublearray : NSObject
 
-    NSNumber *n3 = [NSNumber numberWithBool:YES];
+-(void)display2:(NSMutableArray*)array;
+-(NSMutableArray*)copyarray:(NSArray*)a;
+-(void)display1:(NSArray*)array;
+@end
 
-    NSNumber *n4=[NSNumber numberWithDouble:2.33];
+NS_ASSUME_NONNULL_END
 
-    NSValue *n5 = [NSValue valueWithRange:NSMakeRange(2, 2)];
+#import "doublearray.h"
 
-    NSMutableArray *muArray = [NSMutableArray arrayWithObjects:n1,n2,n3,n4,n5,nil];
-    
-    for (int i = 0; i < muArray.count; i++) {
+@implementation doublearray
 
-        NSLog(@"%@",muArray[i]);
-
-    }
+-(void)display2:(NSMutableArray *)array{
+    NSLog(@"%@",array);
 }
-
-
-
-#import "test.h"
-
-@implementation test
-    +(NSMutableArray*)arraycovert:(NSMutableArray*) muarray{
-        for(int i=0;i<muarray.count;i++){
-            if(i<=muarray.count-i-1){
-                [muarray exchangeObjectAtIndex:i withObjectAtIndex:muarray.count-i-1];
-                
-            }
-        }
-        return muarray;
-    }
-
+-(void)display1:(NSArray*)array{
+    NSLog(@"%@",array);
+    
+}
+-(NSMutableArray*)copyarray:(NSArray*)a {
+    
+    NSMutableArray *mcopy=[a mutableCopy];
+    return mcopy;
+}
 @end
